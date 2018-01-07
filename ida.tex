@@ -1,0 +1,435 @@
+% Created 2016-12-08 Thu 09:14ad
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[english]{babel}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\newenvironment{Figure}
+{\par\medskip\noindent\minipage{\linewidth}}
+{\endminipage\par\medskip}
+\usetheme{metropolis}
+\author{John Haman}
+\institute{Bowling Green State University, Institute for Defense Analyses}
+\date{09 Jan 2018}
+\title{The Energy of Data}
+\begin{document}
+\maketitle
+
+\begin{frame}
+  \frametitle{Slides and Code}
+  \centering
+  \texttt{github.com/jthaman}
+\end{frame}
+
+\begin{frame}
+  Assumptions about data dominate statistical practice
+  \begin{block}{Question:}
+    Is the data inconsistent with my hypothesis??
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{What is Data Energy?}
+  \begin{centering}
+    \begin{block}{In a nutshell \ldots}
+      Energy statistics ($\mathcal{E}$-statistics) are functions of distances between statistical
+      observations. The value of the $\mathcal{E}$-statistic represents the (potential)
+      energy of the data.
+    \end{block}
+    % Energy statistics (E-statistics) are functions of distances
+    % between statistical observations. The value of the energy
+    % statistics for a given data set is the (potential) energy of the
+    % data. This concept is based on the notion of Newton’s
+    % gravitational potential energy, which is a function of the
+    % distance between two bodies. The idea of energy statistics is to
+    % consider statistical observations as heavenly bodies governed by a
+    % statistical potential energy, which is zero if and only if an
+    % underlying statistical hypothesis is true.
+  \end{centering}
+  \pause
+  \begin{center}
+    Why \textit{distances} ??? 
+  \end{center}
+  % Classical statistics operated with real-valued data such as height,
+  % weight, or blood pressure, and it was supposed that typical data are
+  % (approximately) normally distributed so that one can apply the theory
+  % of normal (Gaussian) distributions for inference. Even if the
+  % observations were not Gaussian, in case of big data when the number of
+  % observations, n, was large, one could often refer to central limit
+  % theorems to claim that for large n, the normal approximation is valid
+  % and classical methods are applicable.  What happens if the data are
+  % not real numbers but vectors, functions, graphs, and so on? In this
+  % case even addition or multiplication of data might be a problem if,
+  % for example, the observed vectors have different dimensions. We can
+  % overcome this difficulty if the observations are elements of a metric
+  % space. In this case, instead of working with the observations
+  % themselves, we can work with their (nonnegative) real-valued
+  % distances. This brings us back to the real world where we can work
+  % with real numbers. We call this type of inference energy inference.
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Energy Distance}
+    \begin{center}
+      $\mathcal{E}(X,Y) = 2\mathbb{E}|X - Y| - \mathbb{E}|X - X'| -
+      \mathbb{E}|Y - Y'|$
+    \end{center}
+  \end{block}
+  $|\cdot|$ can be (almost) any measure of distance that you like.
+\end{frame}
+
+\begin{frame}{The Energy Inequality}
+  \begin{enumerate}
+  \item Energy Distance $\mathcal{E}(X,Y) \geq 0$ 
+  \item Energy Distance $\mathcal{E}(X,Y) = 0$ if and only if the
+    hypothesis is true.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{An old conjecture}
+  \begin{block}{Walter Deuber (1998) -- }
+    \textit{``For equal numbers of black and white points in euclidean
+      space, the sum of the pairwise distances between points of equal
+      color is less than or equal to the sum of the pairwise distances
+      between points of different color''} \vskip 0.5 in
+    \textit{``Equality holds only in the case when black and white
+      points coincide''}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Visualizing Energy Inequality}
+  \begin{center}
+    \includegraphics[width = \linewidth]{dots0}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Visualizing Energy Inequality}
+  \begin{center}
+    \includegraphics[width = \linewidth]{dots1}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Visualizing Energy Inequality}
+  \begin{center}
+    \includegraphics[width = \linewidth]{dots2}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Visualizing Energy Inequality}
+  \begin{center}
+    \includegraphics[width = \linewidth]{dots3}
+  \end{center}
+\end{frame}
+
+
+\section{One Sample Energy Statistics}
+
+\begin{frame}
+  \frametitle{Is the data bell shaped?}
+  \includegraphics[width = \linewidth]{hist1}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Still true?}
+  \includegraphics[width = \linewidth]{hist2} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{ECDF Tests}
+\includegraphics[width = \linewidth]{ecdf}
+\end{frame}
+
+\begin{frame}{ECDF Tests}
+\includegraphics[width = \linewidth]{ks_one_sample}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ECDF Tests}
+\includegraphics[width = \linewidth]{ad_one_sample}  
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Problems?!}
+%   \begin{itemize}
+%   \item How to extend this to multivariate data?
+%   \end{itemize}
+% \end{frame}
+
+\begin{frame}
+  \frametitle{Energy GOF}
+  \begin{block}{Energy distance:}
+    \begin{center}
+      $\mathcal{E}(X,Y) = 2\mathbb{E}|X - Y| - \mathbb{E}|X - X'| -
+      \mathbb{E}|Y - Y'|$
+    \end{center}
+  \end{block}
+  replace $Y$ (distribution) with $Y$ (sample version)
+  \begin{block}{Estimated Energy distance:}
+    \begin{center}
+      $$\hat{\mathcal{E}}_n(X, y_1, \ldots, y_n) = \frac{2}{n} \sum_{i=1}^n \mathbb{E}|X - y_i|  - \mathbb{E}|X - X'|  - \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n |y_i - y_j|$$
+    \end{center}
+  \end{block}  
+  % \pause
+  % \begin{block}{Notes}
+  %   \begin{itemize}
+  %   \item If $F = F_0$, then $n \mathcal{E}_n(\bold{X},F_0)$ converges to a distribution.
+  %   \item If not, then $n \mathcal{E}_n$ goes to infinity. 
+  %   \item $\sqrt{\mathcal{E}_n}$ is a metric (on samples of size $n$)
+  %   \end{itemize}
+  % \end{block}
+\end{frame}
+
+\section{Application to Weibull Distribution}
+
+\begin{frame}
+  \frametitle{Motivation}
+  \begin{Figure}
+    \centering
+    \includegraphics[width=\linewidth]{stryker}
+    \captionof{figure}{Stryker}
+  \end{Figure}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width = \textwidth]{rebecca}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivation}
+  \begin{Figure}
+    \centering
+    \includegraphics[width=\linewidth]{pp_plot}
+    \captionof{figure}{Source: IDA NS-D-5137}
+  \end{Figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Weibull Energy}
+  \begin{displaymath}
+    \mathbb{E}|X-y_i| = y_i - 2y_i \exp\left( - \left(\frac{y_i}{b}\right)^a \right) + b
+    \Gamma \left(1 + \frac{1}{a}\right) -2b \gamma_{*} \left(1 + \frac{1}{a}, \left( \frac{y_i}{b} \right)^a\right)
+  \end{displaymath}
+  \vskip 0.5in
+  \begin{displaymath}
+    \mathbb{E}|X - X'| = 2b\Gamma \left( 1 + \frac{1}{a} \right)
+    \left( 1 - \frac{1}{\sqrt[a]{2}} \right)
+  \end{displaymath}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Energy Compared to other Tests}
+  \begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{weibull_power_shape}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Energy Compared to other Tests}
+  \begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{weibull_power}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Energy Test P-values under Null Hypothesis}
+  \begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{pvals}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+ \includegraphics[width = \textwidth]{weibulls1} 
+\end{frame}
+
+
+\begin{frame}
+ \includegraphics[width = \textwidth]{weibulls2} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wait this isn't realistic}
+  \begin{block}{My hypothesis}
+    My data is Weibull with known parameters
+  \end{block}
+
+  \begin{block}{My desired hypothesis}
+    My data is Weibull with \textbf{unknown} parameters
+  \end{block}
+\end{frame}
+
+\section{Two (or more) Sample Problems}
+
+\begin{frame}
+\includegraphics[width = \linewidth]{scatter}
+\end{frame}
+
+\begin{frame}
+  \frametitle{KS Distance}
+  \includegraphics[width = \linewidth]{ks_two_sample}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Two Sample Energy}
+  \begin{block}{Energy Distance:}
+    \begin{center}
+      $\mathcal{E}(X,Y) = 2\mathbb{E}|X - Y| - \mathbb{E}|X - X'| -
+      \mathbb{E}|Y - Y'|$
+    \end{center}
+  \end{block}
+  replace $X$ and $Y$ (distribution) with $X$ and $Y$ (sample version)
+  \begin{block}{Estimated Energy Distance:}
+    \begin{gather*}
+      \hat{\mathcal{E}}_{n_1, n_2} = \\ \frac{2}{n_1 n_2} \sum \sum |x_i - y_k| -
+      \frac{1}{n_1} \sum \sum |x_i - x_j| - \frac{1}{n_2} \sum \sum |y_\ell - y_k| 
+    \end{gather*}
+
+    \begin{displaymath}
+      = \textsf{2 *(avg ''between'' distance) - (avg ''within'' distances)}
+    \end{displaymath}
+  \end{block}
+\end{frame}
+
+\section{Application to Simulation Validation}
+
+\begin{frame}
+  \includegraphics[width = \textwidth]{kelly}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width = \linewidth]{kelly2}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Energy vs. KS}
+ \includegraphics[width = \textwidth]{ks_energy_means} 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Energy vs. KS}
+ \includegraphics[width = \textwidth]{ks_energy_sds} 
+\end{frame}
+
+
+\begin{frame}{Many Other Applications!}
+  \fontsize{7pt}{7.2}\selectfont
+  \begin{tabular}[c]{lll}
+    \hline
+    & \textbf{Classical Approach} & \textbf{Energy Approach} \\
+    \hline
+    \\
+    Dependence & Pearson's Correlation & Distance Correlation \\
+    \\
+    \hline
+    \\
+    Goodness-of-fit & EDF tests & One-Sample Energy test \\
+    \\
+    \hline
+    \\
+    Multivariate Normality & Skewness and Kurtosis & Multivariate Energy test for Normality \\
+    \\
+    \hline
+    \\
+    Multisample Problems & ANOVA & Distance Components (DISCO) \\
+    \\
+    \hline
+    \\
+    Cluster Analysis & Ward's Method or $k$-Means & Hierarchical Energy Clustering or $k$-Groups\\
+    \\
+    \hline
+  \end{tabular}
+  \begin{block}{}
+    Many Energy tests can be created to test very specific hypotheses.
+  \end{block}
+\end{frame}
+
+\section{Why is Energy ``Special''? }
+
+\begin{frame}
+  \frametitle{Why is Energy so special?}
+  \begin{center}
+    \centering
+    \includegraphics[width = \linewidth]{triangle}
+    % Following Székely (1989), we can represent the three pairs of
+    % dualities between energy, matter, and mind with the help of a triangle
+    % (Figure 1) whose vertices are energy, matter, and mind, and the
+    % connecting sides represent the equivalence/duality/dichotomy between
+    % these notions.  Manifestations of matter include mass (m) and disorder
+    % (measured by entropy S). Manifestations of the immaterial mind are
+    % memory, information (I ), observation, data, and inputs passed on by
+    % the sensory organs.  The duality between E and m is Einstein’s famous
+    % E = mc 2 (Einstein 1905). The duality between matter and mind is
+    % Szilárd’s idea, which first appeared in his 1922 dissertation, that in
+    % a closed material system, the decrease of uncertainty/entropy (S)
+    % corresponds to the increase of information (I ) in our mind (Szilárd
+    % 1929, Schrödinger 1944, Brillouin 2004). To use Szilárd’s words, it is
+    % possible to reduce the entropy of a thermodynamic system by the
+    % intervention of intel- ligent beings, for example a “Maxwell’s demon.”
+    % Thus Szilárd eradicated the ancient dichotomy of matter and mind just
+    % as Einstein eradicated the dichotomy of energy and matter. This review
+    % is about the third side of the triangle, the connection between energy
+    % and mind in terms of data distance D defined below. Our mind regulates
+    % the flow of information (I ) and data distance (D), the source of
+    % statistical energy, to help achieve mental harmony.  For data X = X 1
+    % , . . . , X n and Y = Y 1 , . . . , Y n in Euclidean space
+  \end{center}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{block}{Take aways}
+    \begin{enumerate}
+    \item $\mathcal{E}$ statistics are functions of distances between data.
+    \item $\mathcal{E}$ statistics are possible alternatives to
+      current IDA practices
+    \item Energy methods are powerful, consistent, and practical.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Further Reading}
+  \begin{center}
+    \textit{Thank you very much for your time today.}
+  \end{center}
+
+  \begin{block}{Some references}
+    \begin{enumerate}
+    \item \textit{Energy Statistics}, Chapman \&  Hall / CRC:
+      available 2018 (Maybe).
+    \item \textit{The Energy of Data}, ARISA: available 2017.
+    \item \texttt{energy} package for \texttt{R}: available on CRAN.
+    \item Gabor J. Szekely and Maria L. Rizzo (2009). \textit{Brownian Distance Covariance},
+      Annals of Applied Statistics, Vol. 3, No. 4, 1236-1265. 
+    \item Szekely, G. J. and Rizzo, M. L. (2005) \textit{A New Test for Multivariate Normality},
+      Journal of Multivariate Analysis, 93/1, 58-80.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
