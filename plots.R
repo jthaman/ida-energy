@@ -1,6 +1,15 @@
 library(tidyverse)
 setwd("~/Dropbox/talks/IDA talk")
-library(viridis)
+
+
+theme_set(theme_bw(
+    plot.background = element_rect(fill = "transparent"), 
+    panel.background = element_rect(fill = "transparent"), 
+    legend.background = element_rect(fill = "transparent"), 
+    legend.box.background = element_rect(fill = "transparent") 
+))
+
+
 
 x <- c(1.03, 1.24, 1.47, 1.52, 1.92, 1.93, 1.94, 1.95, 1.96, 1.97, 1.98, 
        1.99, 2.72, 2.75, 2.78, 2.81, 2.84, 2.87, 2.9, 2.93, 2.96, 2.99, 3.6, 
@@ -53,7 +62,7 @@ ggplot(df4, aes(x=x, y=y)) +
     theme(text = element_text(size=20)) + 
     scale_shape_manual(values = c(16, 21)) + 
     theme(legend.position="none") +
-    ggtitle("Random Data") +
+    ggtitle("Totally Random Data", "Four Black and White Points") +
     ggsave("dots0.png", width = 8, height = 6)
 
 ## Between Group Distances
