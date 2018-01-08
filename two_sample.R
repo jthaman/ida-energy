@@ -1,6 +1,5 @@
 library(energy)
 library(readr)
-setwd("~/Dropbox/talks/IDA talk/")
 
 ## KS test vs Energy
 

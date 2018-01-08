@@ -1,6 +1,7 @@
 library(readr)
+library(here)
 
-pvals <- read_csv("pvals.csv")
+pvals <- read_csv(here::here("pvals.csv"))
 
 pvals <- pvals$pvals
 

@@ -1,6 +1,6 @@
 library(tidyverse)
-setwd("~/Dropbox/talks/IDA talk")
 library(viridis)
+library(here)
 
 x <- c(1.03, 1.24, 1.47, 1.52, 1.92, 1.93, 1.94, 1.95, 1.96, 1.97, 1.98, 
        1.99, 2.72, 2.75, 2.78, 2.81, 2.84, 2.87, 2.9, 2.93, 2.96, 2.99, 3.6, 
@@ -90,7 +90,7 @@ ggplot(df7, aes(x=x, y=y, group = group)) +
     ggsave("dots3.png", width = 8, height =6)
 
 ## mis-specified scale
-df_w <- read_csv("~/Dropbox/talks/IDA talk/sim_data_b.csv")
+df_w <- read_csv(here::here("sim_data_b.csv"))
 bs <- c(0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2)
 df_w <- reshape2::melt(df_w)
 df_w$b <- rep(bs, 4)
@@ -112,7 +112,7 @@ ggplot(df_w, aes(x = b, y=value, group = Method, color = Method)) +
 
 ## mis-specified shape
 
-df_w2 <- read_csv("~/Dropbox/talks/IDA talk/sim_data_a.csv")
+df_w2 <- read_csv(here::here("sim_data_a.csv"))
 as <- c(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2)
 df_w2 <- reshape2::melt(df_w2)
 df_w2$a <- rep(as, 4)
@@ -385,7 +385,7 @@ ggplot(dat0, aes(x)) +
 
 
 ## shape = 0.5 power graph
-df_t <- read_csv("~/Dropbox/talks/IDA talk/sim_data_b_shape0_5.csv")
+df_t <- read_csv(here::here("sim_data_b_shape0_5.csv"))
 bs <- c(0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2)
 df_t <- reshape2::melt(df_t)
 df_t$b <- rep(bs, 4)
