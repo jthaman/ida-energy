@@ -28,8 +28,11 @@
 \begin{document}
 \maketitle
 
+
 \begin{frame}
   \frametitle{Slides and Code}
+  \centering
+  \includegraphics[scale = 0.3]{cat}\\
   \centering
   \texttt{github.com/jthaman/ida-energy}
 \end{frame}
@@ -38,17 +41,18 @@
   Assumptions about data dominate statistical practice
   \begin{block}{Question:}
     Is the data inconsistent with my hypothesis??
+    % Why does IDA care about this question?
   \end{block}
 \end{frame}
-
 
 \begin{frame}
   \frametitle{What is Data Energy?}
   \begin{centering}
     \begin{block}{In a nutshell \ldots}
-      Energy statistics ($\mathcal{E}$-statistics) are functions of distances between statistical
-      observations. The value of the $\mathcal{E}$-statistic represents the (potential)
-      energy of the data.
+      Energy statistics ($\mathcal{E}$-statistics) are functions of
+      distances between statistical observations. The value of the
+      $\mathcal{E}$-statistic represents the (potential) energy of the
+      data.
     \end{block}
     % Energy statistics (E-statistics) are functions of distances
     % between statistical observations. The value of the energy
@@ -157,16 +161,16 @@
 
 \begin{frame}
   \frametitle{ECDF Tests}
-\includegraphics[width = \linewidth]{ecdf}
+  \includegraphics[width = \linewidth]{ecdf}
 \end{frame}
 
 \begin{frame}{ECDF Tests}
-\includegraphics[width = \linewidth]{ks_one_sample}
+  \includegraphics[width = \linewidth]{ks_one_sample}
 \end{frame}
 
 \begin{frame}
   \frametitle{ECDF Tests}
-\includegraphics[width = \linewidth]{ad_one_sample}  
+  \includegraphics[width = \linewidth]{ad_one_sample}  
 \end{frame}
 
 % \begin{frame}
@@ -268,12 +272,12 @@
 
 
 \begin{frame}
- \includegraphics[width = \textwidth]{weibulls1} 
+  \includegraphics[width = \textwidth]{weibulls1} 
 \end{frame}
 
 
 \begin{frame}
- \includegraphics[width = \textwidth]{weibulls2} 
+  \includegraphics[width = \textwidth]{weibulls2} 
 \end{frame}
 
 \begin{frame}
@@ -290,7 +294,7 @@
 \section{Two (or more) Sample Problems}
 
 \begin{frame}
-\includegraphics[width = \linewidth]{scatter}
+  \includegraphics[width = \linewidth]{scatter}
 \end{frame}
 
 \begin{frame}
@@ -312,7 +316,6 @@
       \hat{\mathcal{E}}_{n_1, n_2} = \\ \frac{2}{n_1 n_2} \sum \sum |x_i - y_k| -
       \frac{1}{n_1^2} \sum \sum |x_i - x_j| - \frac{1}{n_2^2} \sum \sum |y_\ell - y_k| 
     \end{gather*}
-
     \begin{displaymath}
       = \textsf{2 *(avg ''between'' distance) - (avg ''within'' distances)}
     \end{displaymath}
@@ -331,13 +334,13 @@
 
 \begin{frame}
   \frametitle{Energy vs. KS}
- \includegraphics[width = \textwidth]{ks_energy_means} 
+  \includegraphics[width = \textwidth]{ks_energy_means} 
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Energy vs. KS}
- \includegraphics[width = \textwidth]{ks_energy_sds} 
+  \includegraphics[width = \textwidth]{ks_energy_sds} 
 \end{frame}
 
 

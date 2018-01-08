@@ -53,7 +53,7 @@ ggplot(df4, aes(x=x, y=y, group = group)) +
     geom_line() +
     theme(text = element_text(size=20)) + 
     theme(legend.position="none") +
-    ggtitle("Totally Random Data -- Within Color Distance") +
+    ggtitle("Within Color Distance") +
     ggsave("dots1.png", width = 8, height = 6)
 
 ### No Distances
@@ -62,7 +62,7 @@ ggplot(df4, aes(x=x, y=y)) +
     theme(text = element_text(size=20)) + 
     scale_shape_manual(values = c(16, 21)) + 
     theme(legend.position="none") +
-    ggtitle("Totally Random Data", "Four Black and White Points") +
+    ggtitle("Random Data", "Four Black and White Points") +
     ggsave("dots0.png", width = 8, height = 6)
 
 ## Between Group Distances
@@ -80,7 +80,7 @@ ggplot(df5, aes(x=x, y=y, group = group)) +
     theme(text = element_text(size=20)) + 
     theme(legend.position="none") +
     geom_line() +
-    ggtitle("Totally Random Data -- Between Color Distance") +
+    ggtitle("Between Color Distances") +
     ggsave("dots2.png", width = 8, height = 6)
 
 ### combined plot (all distances)
@@ -376,7 +376,7 @@ ggplot(dat0, aes(x)) +
     ggtitle("Energy is Powerful against....", "shape = 1, scale varies") +
     theme(text = element_text(size=20)) + 
     xlab("Data") +
-    ylab("Probability") +
+    ylab("Density") +
     stat_function(fun = "dweibull", args = list(shape = 1, scale = 1), size = 1.2, color = "black") +
     stat_function(fun = "dweibull", args = list(shape = 1, scale = 2), size = 1.2, color = cols[1]) +
     stat_function(fun = "dweibull", args = list(shape = 1, scale = 0.5), size = 1.2, color = cols[1]) +
@@ -387,7 +387,7 @@ ggplot(dat0, aes(x)) +
     ggtitle("Energy is Powerful against... ", "Shape = 0.5, Scale Varies") +
     theme(text = element_text(size=20)) + 
     xlab("Data") +
-    ylab("Probability") +
+    ylab("Density") +
     stat_function(fun = "dweibull", args = list(shape = 0.5, scale = 1), size = 1.2, color = "black") +
     stat_function(fun = "dweibull", args = list(shape = 0.5, scale = 2), size = 1.2, color = cols[1]) +
     ggsave("weibulls2.png", width = 8, height = 6)
