@@ -2,6 +2,7 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[english]{babel}
+\usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{grffile}
@@ -18,7 +19,6 @@
 \newenvironment{Figure}
 {\par\medskip\noindent\minipage{\linewidth}}
 {\endminipage\par\medskip}
-
 \usetheme{metropolis}
 \metroset{titleformat=smallcaps}
 \author{John Haman}
@@ -226,13 +226,18 @@
 
 \begin{frame}
   \frametitle{Weibull Energy}
+  \begin{block}{Estimated Energy distance:}
+    \begin{center}
+      $$\hat{\mathcal{E}}_n(X, y_1, \ldots, y_n) = \frac{2}{n} \sum_{i=1}^n \textcolor{blue}{\mathbb{E}|X - y_i|}  - \textcolor{red}{\mathbb{E}|X - X'|}  - \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n |y_i - y_j|$$
+    \end{center}
+  \end{block}  
   \begin{displaymath}
-    \mathbb{E}|X-y_i| = y_i - 2y_i \exp\left( - \left(\frac{y_i}{b}\right)^a \right) + b
+    \textcolor{blue}{\mathbb{E}|X-y_i|} = y_i - 2y_i \exp\left( - \left(\frac{y_i}{b}\right)^a \right) + b
     \Gamma \left(1 + \frac{1}{a}\right) -2b \gamma_{*} \left(1 + \frac{1}{a}, \left( \frac{y_i}{b} \right)^a\right)
   \end{displaymath}
   \vskip 0.5in
   \begin{displaymath}
-    \mathbb{E}|X - X'| = 2b\Gamma \left( 1 + \frac{1}{a} \right)
+    \textcolor{red}{\mathbb{E}|X - X'|} = 2b\Gamma \left( 1 + \frac{1}{a} \right)
     \left( 1 - \frac{1}{\sqrt[a]{2}} \right)
   \end{displaymath}
 \end{frame}
@@ -276,7 +281,7 @@
   \begin{block}{My hypothesis}
     My data is Weibull with known parameters
   \end{block}
-
+  \vskip 0.5in
   \begin{block}{My desired hypothesis}
     My data is Weibull with \textbf{unknown} parameters
   \end{block}
@@ -305,7 +310,7 @@
   \begin{block}{Estimated Energy Distance:}
     \begin{gather*}
       \hat{\mathcal{E}}_{n_1, n_2} = \\ \frac{2}{n_1 n_2} \sum \sum |x_i - y_k| -
-      \frac{1}{n_1} \sum \sum |x_i - x_j| - \frac{1}{n_2} \sum \sum |y_\ell - y_k| 
+      \frac{1}{n_1^2} \sum \sum |x_i - x_j| - \frac{1}{n_2^2} \sum \sum |y_\ell - y_k| 
     \end{gather*}
 
     \begin{displaymath}
