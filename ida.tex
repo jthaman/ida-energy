@@ -28,7 +28,6 @@
 \begin{document}
 \maketitle
 
-
 \begin{frame}
   \frametitle{Slides and Code}
   \centering
@@ -48,7 +47,7 @@
 \begin{frame}
   \frametitle{What is Data Energy?}
   \begin{centering}
-    \begin{block}{In a nutshell \ldots}
+    \begin{block}{In a nutshell}
       Energy statistics ($\mathcal{E}$-statistics) are functions of
       distances between statistical observations. The value of the
       $\mathcal{E}$-statistic represents the (potential) energy of the
@@ -91,19 +90,13 @@
   \begin{block}{Energy Distance}
     \begin{center}
       $\mathcal{E}(X,Y) = 2\mathbb{E}|X - Y| - \mathbb{E}|X - X'| -
-      \mathbb{E}|Y - Y'|$
+      \mathbb{E}|Y - Y'| \geq 0$
     \end{center}
   \end{block}
-  $|\cdot|$ can be (almost) any measure of distance that you like.
+  \centering
+  $|\cdot|$ is probably Euclidean (straight line) distance.
 \end{frame}
 
-\begin{frame}{The Energy Inequality}
-  \begin{enumerate}
-  \item Energy Distance $\mathcal{E}(X,Y) \geq 0$ 
-  \item Energy Distance $\mathcal{E}(X,Y) = 0$ if and only if the
-    hypothesis is true.
-  \end{enumerate}
-\end{frame}
 
 \begin{frame}{An old conjecture}
   \begin{block}{Walter Deuber (1998) -- }
@@ -147,7 +140,7 @@
 \end{frame}
 
 
-\section{One Sample Energy Statistics}
+\section{One Sample Goodness-of-Fit}
 
 \begin{frame}
   \frametitle{Is the data bell shaped?}
@@ -316,8 +309,9 @@
       \hat{\mathcal{E}}_{n_1, n_2} = \\ \frac{2}{n_1 n_2} \sum \sum |x_i - y_k| -
       \frac{1}{n_1^2} \sum \sum |x_i - x_j| - \frac{1}{n_2^2} \sum \sum |y_\ell - y_k| 
     \end{gather*}
+    
     \begin{displaymath}
-      = \textsf{2 *(avg ''between'' distance) - (avg ''within'' distances)}
+      = \textsf{2 (avg ``between'' distance) - (avg ``within'' distances)}
     \end{displaymath}
   \end{block}
 \end{frame}
@@ -379,10 +373,12 @@
 \section{Why is Energy ``Special''? }
 
 \begin{frame}
+  \fontsize{7pt}{7.2}\selectfont
   \frametitle{Why is Energy so special?}
   \begin{center}
     \centering
     \includegraphics[width = \linewidth]{triangle}
+    Source: Szekely, Rizzo (2017)
     % Following Székely (1989), we can represent the three pairs of
     % dualities between energy, matter, and mind with the help of a triangle
     % (Figure 1) whose vertices are energy, matter, and mind, and the
@@ -429,7 +425,7 @@
     \begin{enumerate}
     \item \textit{Energy Statistics}, Chapman \&  Hall / CRC:
       available 2018 (Maybe).
-    \item \textit{The Energy of Data}, ARISA: available 2017.
+    \item \textit{The Energy of Data}, ARISA (2017).
     \item \texttt{energy} package for \texttt{R}: available on CRAN.
     \item Gabor J. Szekely and Maria L. Rizzo (2009). \textit{Brownian Distance Covariance},
       Annals of Applied Statistics, Vol. 3, No. 4, 1236-1265. 
