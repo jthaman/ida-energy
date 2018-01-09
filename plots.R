@@ -373,18 +373,18 @@ cols = gg_color_hue(2)
 cols
 
 ggplot(dat0, aes(x)) +
-    ggtitle("Energy is Powerful against....", "shape = 1, scale varies") +
+    ggtitle("Exponential curves (Shape = 1)", "Scale = 2 (black) Scale = 2 (red), Scale = 0.5 (blue)") +
     theme(text = element_text(size=20)) + 
     xlab("Data") +
     ylab("Density") +
     stat_function(fun = "dweibull", args = list(shape = 1, scale = 1), size = 1.2, color = "black") +
     stat_function(fun = "dweibull", args = list(shape = 1, scale = 2), size = 1.2, color = cols[1]) +
-    stat_function(fun = "dweibull", args = list(shape = 1, scale = 0.5), size = 1.2, color = cols[1]) +
+    stat_function(fun = "dweibull", args = list(shape = 1, scale = 0.5), size = 1.2, color = cols[2]) +
     ggsave("weibulls1.png", width = 8, height = 6)
 
 
 ggplot(dat0, aes(x)) +
-    ggtitle("Energy is Powerful against... ", "Shape = 0.5, Scale Varies") +
+    ggtitle("Weibull Curves (Shape = 0.5)", "Scale = 1 (black), 2 (red)") +
     theme(text = element_text(size=20)) + 
     xlab("Data") +
     ylab("Density") +
