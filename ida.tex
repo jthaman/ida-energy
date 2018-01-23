@@ -23,7 +23,7 @@
 \metroset{titleformat=smallcaps}
 \author{John Haman}
 \institute{Bowling Green State University, Institute for Defense Analyses}
-\date{09 Jan 2018}
+\date{23 Jan 2018}
 \title{The Energy of Data}
 \begin{document}
 \maketitle
@@ -203,11 +203,13 @@
       $$\hat{\mathcal{E}}_n(X, y_1, \ldots, y_n) = \frac{2}{n} \sum_{i=1}^n \textcolor{blue}{\mathbb{E}|X - y_i|}  - \textcolor{red}{\mathbb{E}|X - X'|}  - \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n |y_i - y_j|$$
     \end{center}
   \end{block}  
-  \begin{displaymath}
-    \textcolor{blue}{\mathbb{E}|X-y_i|} = y_i - 2y_i \exp\left( - \left(\frac{y_i}{b}\right)^a \right) + b
-    \Gamma \left(1 + \frac{1}{a}\right) -2b \gamma_{*} \left(1 + \frac{1}{a}, \left( \frac{y_i}{b} \right)^a\right)
-  \end{displaymath}
-  \vskip 0.5in
+  \begin{gather*}
+    \textcolor{blue}{\mathbb{E}|X-y_i|} = 2y_i F_{weibull}(y_i;a,b)
+    -y_i \,\, + \\ b\Gamma\left(1 + \frac{1}{a}\right)  \left( 1 -2
+      F_{gamma}\left( \left( \frac{y_i}{b} \right)^a; 1 + \frac{1}{a};
+        1\right) \right) 
+  \end{gather*}
+  \vskip 0.3in
   \begin{displaymath}
     \textcolor{red}{\mathbb{E}|X - X'|} = 2b\Gamma \left( 1 + \frac{1}{a} \right)
     \left( 1 - \frac{1}{\sqrt[a]{2}} \right)
@@ -358,25 +360,26 @@
   \begin{block}{Take aways}
     \begin{enumerate}
     \item $\mathcal{E}$ statistics are functions of distances between data.
-    \item $\mathcal{E}$ statistics are possible alternatives to
-      current IDA practices
+    \item $\mathcal{E}$ statistics are possible alternatives to common
+      frequentist methods.
     \item Energy methods are powerful, consistent, and practical.
     \end{enumerate}
   \end{block}
 \end{frame}
 
-\begin{frame}{Further Reading}
-  \begin{center}
-    \textit{Thank you very much for your time today.}
-  \end{center}
+% \begin{frame}{Further Reading}
+%   \begin{center}
+%     \textit{Thank you very much for your time today.}
+%   \end{center}
 
-  \begin{block}{Some references}
-    \begin{enumerate}
-    \item \textit{The Energy of Data}, ARISA (2017).
-    \item \texttt{energy} package for \texttt{R}: available on CRAN.
-    \end{enumerate}
-  \end{block}
-\end{frame}
+%   \begin{block}{Some references}
+%     \begin{enumerate}
+%     \item Gabor Szekely and Maria Rizzo, \textit{The Energy of Data}, ARISA (2017).
+%     \item \texttt{energy} package for \texttt{R}: available on CRAN.
+%     \end{enumerate}
+%   \end{block}
+% \end{frame}
+
 
 \end{document}
 %%% Local Variables:

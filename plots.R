@@ -373,7 +373,7 @@ cols = gg_color_hue(2)
 cols
 
 ggplot(dat0, aes(x)) +
-    ggtitle("Exponential curves (Shape = 1)", "Scale = 2 (black) Scale = 2 (red), Scale = 0.5 (blue)") +
+    ggtitle("Exponential curves (Shape = 1)", "Scale = 1 (black) Scale = 2 (red), Scale = 0.5 (blue)") +
     theme(text = element_text(size=20)) + 
     xlab("Data") +
     ylab("Density") +
